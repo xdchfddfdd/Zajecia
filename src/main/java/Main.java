@@ -8,37 +8,27 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Podaj rozmiar ramki:");
-        int size = scanner.nextInt();
+        System.out.println("Podaj wysokość trójkąta:");
+        int height = scanner.nextInt();
 
-        System.out.println("Podaj znak, z którego ma być zbudowana ramka:");
+        System.out.println("Podaj znak, z którego ma być zbudowany trójkąt:");
         char symbol = scanner.next().charAt(0);
 
-        generateFrameSquare(size, symbol);
+        generateRightTriangle(height, symbol);
     }
 
-    public static void generateFrameSquare(int size, char symbol) {
-
-        for (int i = 0; i < size; i++) {
-            System.out.print(symbol + " ");
-        }
-        System.out.println();
-
-        for (int i = 0; i < size - 2; i++) {
-            System.out.print(symbol + " ");
-            for (int j = 0; j < size - 2; j++) {
+    public static void generateRightTriangle(int height, char symbol) {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < height - i - 1; j++) {
                 System.out.print("  ");
             }
-            System.out.println(" " + symbol);
+            for (int k = 0; k <= i; k++) {
+                System.out.print(symbol + " ");
+            }
+            System.out.println();
         }
-
-        for (int i = 0; i < size; i++) {
-            System.out.print(symbol + " ");
-        }
-        System.out.println();
     }
 }
-
 
   // @Test
   // void addition() {
