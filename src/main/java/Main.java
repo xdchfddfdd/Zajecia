@@ -1,23 +1,23 @@
 // import static org.junit.jupiter.api.Assertions.assertEquals;
 
 // import org.junit.jupiter.api.Test;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        char[][] tablica = generujTablice();
+        char[][] tablica = generujTablice(6, 6);
         wyswietlTablice(tablica);
     }
 
-    public static char[][] generujTablice() {
-        char[][] tablica = new char[6][6];
+    public static char[][] generujTablice(int wiersze, int kolumny) {
+        char[][] tablica = new char[wiersze][kolumny];
         Random rand = new Random();
-        String dostepneZnaki = "!@#$%^&*()_+{}[]abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-        for (int i = 0; i < tablica.length; i++) {
-            for (int j = 0; j < tablica[i].length; j++) {
-                // Losowanie indeksu do pobrania losowego znaku z dostępnych
-                int index = rand.nextInt(dostepneZnaki.length());
-                tablica[i][j] = dostepneZnaki.charAt(index);
+        for (int i = 0; i < wiersze; i++) {
+            for (int j = 0; j < kolumny; j++) {
+                // Generowanie losowego znaku ASCII
+                char znak = (char) (rand.nextInt(94) + 33); // Zakres od 33 do 126 (włącznie) dla drukowalnych znaków ASCII
+                tablica[i][j] = znak;
             }
         }
 
@@ -32,10 +32,10 @@ public class Main {
             System.out.println();
         }
     }
+}
 
 
   // @Test
   // void addition() {
   //     assertEquals(2, 1 + 1);
   // }
-}
